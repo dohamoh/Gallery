@@ -1,0 +1,21 @@
+<section class="p-3 d-flex align-items-center justify-content-evenly h-100 w-75 mx-auto flex-column position-relative">
+  <p class=" text-danger " *ngIf="errMessage !='' && errMessage">{{errMessage}}</p>
+  <i class="bi bi-x-lg position-absolute top-0 end-0 m-4 cursor-pointer" (click)="close()"></i>
+  <input type="text" placeholder="name" [(ngModel)]="name" name="name"
+  class=" border-0 border-bottom p-2 px-3 border-2 w-100">
+
+  <input type="text" placeholder="description" [(ngModel)]="description"  name="description"
+  class=" border-0 border-bottom p-2 px-3 border-2 w-100">
+
+  <div class=" d-flex align-items-center justify-content-between w-100">
+    <input type="file" id="files" class="d-none" (change)="uploads($event)">
+  <label for="files" class=""><i class="bi bi-images fs-1 cursor-pointer"></i></label>
+
+
+  <div class=" d-flex align-items-center justify-content-start">
+    <p class=" ms-3 text-success">{{added}}</p>
+    <button class=" btn btn-main text-white" (click)="add()"><p *ngIf="!loading">ADD</p> <i *ngIf="loading" class="p-0 m-0 spinner-border " role="status"></i>
+    </button>
+  </div>
+  </div>
+</section>

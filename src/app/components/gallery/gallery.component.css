@@ -1,0 +1,21 @@
+.imgs {
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  height: 550px;
+  padding: 0;
+}
+.imgs .layer h1 {
+  opacity: 0;
+}
+.imgs:hover .layer {
+  cursor: pointer;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: black;
+  opacity: 0.75;
+  z-index: 1;
+}
+.imgs:hover .layer h1 {
+  opacity: 1;
+}/*# sourceMappingURL=gallery.component.css.map */

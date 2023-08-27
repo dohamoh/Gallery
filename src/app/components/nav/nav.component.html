@@ -1,0 +1,24 @@
+<nav class=" w-100 bg-dark box-shadow text-white position-sticky sticky-top">
+  <div class=" d-flex align-items-center justify-content-between container py-2 px-md-5 px-sm-4 px-2">
+
+    <div class=" d-flex align-items-center cursor-pointer">
+      <i class="bi bi-box-arrow-in-right fs-4 ms-2" (click)="logout()"></i>
+      <div class="admin me-md-5 me1" routerLink="/home"></div>
+      <h4 class=" me-2 m-0 name" routerLink="/home">Agalleria</h4>
+    </div>
+    <div
+      class="cursor-pointer position-relative gallery transition d-flex align-items-center justify-content-between fs-4"
+      routerLink="/gallery">
+      <p class=" p-0 m-0">المعرض</p>
+
+      <div class="position-absolute top-0 add transition m-0" *ngIf="userData.role=='Admin'" (click)="add = !add"><i
+          class="bi bi-node-plus  m-0 p-0 fs-3 "></i></div>
+    </div>
+  </div>
+</nav>
+<section *ngIf="add"
+  class="bg-black bg-opacity-75 w-100 h-100 position-fixed m-auto d-flex align-items-center justify-content-center px-3"
+  style="z-index: 1;">
+  <app-add class=" bg-white col-lg-6 col-md-9 col-11 h-50 rounded-3" (Close)="add = $event"></app-add>
+
+</section>

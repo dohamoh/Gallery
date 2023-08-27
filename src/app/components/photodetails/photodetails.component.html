@@ -1,0 +1,149 @@
+<section class=" bg-white w-100  container scroll mt-60 position-relative pt-70 pb-50">
+  <i class="bi bi-x-lg position-absolute top-0 end-0 m-4 cursor-pointer" (click)="close()"></i>
+
+  <div class="dropdown position-absolute top-0 start-0  cursor-pointer" *ngIf="userData.role == 'Admin'">
+    <i class="bi bi-three-dots-vertical position-absolute top-0 start-0 m-4 cursor-pointer" data-bs-toggle="dropdown"
+      aria-expanded="false"></i>
+    <ul class="dropdown-menu">
+      <li (click)="openEdit()">تعديل</li>
+      <li (click)="hideProd()">اخفاء</li>
+      <li (click)="DeleteID = data._id">حذف</li>
+    </ul>
+  </div>
+  <!-- <div>
+    <h2 *ngIf="!edit && data.name!='undefined'" #name>{{data.name}}</h2>
+    <input *ngIf="edit" type="text" class=" border-0 border-bottom border-2 w-100 " [(ngModel)]="name">
+    <p *ngIf="!edit && data.description!='undefined'" class=" px-4">{{data.description}}</p>
+    <input *ngIf="edit" type="text" class=" border-0 border-bottom border-2 w-100  px-3 mt-4" [(ngModel)]="description">
+
+  </div> -->
+
+  <div class="row h-90 my-4 pb-5">
+    <div class="col-12 divImg row w-100 m-0 imgScroll">
+      <div class=" col-md-6 col-12 " style="padding-right: 100px;">
+        <h2 *ngIf="!edit && data.name!='undefined'" #name>{{data.name}}</h2>
+        <input *ngIf="edit" type="text" class=" border-0 border-bottom border-2 w-100 " [(ngModel)]="name">
+        <p *ngIf="!edit && data.description!='undefined'" class=" px-4">{{data.description}}</p>
+        <input *ngIf="edit" type="text" class=" border-0 border-bottom border-2 w-100  px-3 mt-4" [(ngModel)]="description">
+
+      </div>
+      <!-- <div class="allImgs m-0 row"> -->
+        <!-- <input type="file" class="d-none" id="addImg" (change)="uploads($event)" multiple> -->
+
+        <!-- <label class="img  bg-white d-flex align-items-center justify-content-center cursor-pointer" for="addImg"
+          *ngIf="edit"><i class="bi bi-plus-square-dotted fs-2"></i></label> -->
+        <div  class=" div col-md-6 col-12 position-relative "
+          style="background-image: url({{data.images[0]}});" (click)="openImage(0,$event)">
+          <!-- <label *ngIf="edit" style="width: 20px; height: 20px;" id="remove" (click)="deleteImage(i)"
+            class="position-absolute top-0 end-0 m-3 cursor-pointer text-white bg-black p-0 rounded-5 d-flex align-items-center justify-content-center">
+            <i style="font-size: 10px; margin-top: 2px !important;" class="bi bi-x-lg m-0 p-0 text-white"></i>
+          </label> -->
+
+        <!-- </div> -->
+      </div>
+    </div>
+    <div *ngIf="!edit" class="col-12 icons row m-0 d-flex align-items-center justify-content-center flex-md-wrap-reverse ">
+      <div class="col-lg-10 col-md-10 col-12 transition rounded-3 p-0 d-flex justify-content-center position-relative overflow-hidden"
+        id="comment">
+        <button class=" m-0 position-absolute start-0 btn btn-main h-100 d-flex align-items-center justify-content-center"
+          (click)="addComment()"><i class="bi bi-send-plus-fill"></i></button>
+        <input type="text" class=" w-100 p-2 border-0 border-bottom rounded-3 " [(ngModel)]="comment"
+          placeholder="تعليق">
+      </div>
+      <div class="col-lg-1 col-md-2 col-3  d-flex align-items-start justify-content-between  " *ngIf="userData!='' &&userData">
+        <div class=" d-flex align-items-center justify-content-between">
+          <p class=" me-1 me-3">{{data.comments?.length}}</p>
+          <!-- <i class="bi bi-heart-fill fs-5  cursor-pointer" [ngClass]="ifLike?'text-danger':'text-grey'"
+            (click)="like()"></i> -->
+            <i class="bi bi-chat-square-dots-fill fs-5 text-grey cursor-pointer"></i>
+
+          </div>
+
+
+        <div class=" d-flex align-items-center justify-content-between">
+          <p class=" me-1 me-3">{{data.likes?.length}}</p>
+          <!-- <i class="bi bi-heart-fill fs-5  cursor-pointer" [ngClass]="ifLike?'text-danger':'text-grey'"
+            (click)="like()"></i> -->
+            <i class="bi bi-heart-fill fs-5  cursor-pointer" (click)="like($event)" [ngClass]="ifLike()?'text-danger':'text-grey'"
+            ></i>
+          </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="edit" class="col-lg-2 col-md-3 col-5 row m-0 mt-3 mt-md-0 d-flex align-items-center justify-content-between">
+      <button class="btn btn-main text-white rounded-0 w-auto" (click)="save()">حفظ</button>
+      <button class="btn btn-danger text-white rounded-0 w-auto" (click)="cancel()">إلغاء</button>
+    </div>
+  </div>
+<div  *ngFor="let comment of data.comments let i = index" [ngClass]="{'opacity-50': comment.hide&&userData.role == 'Admin','d-none': comment.hide && userData.role == 'User'}" >
+  <div class=" px-3 py-2"*ngIf="i<disNum">
+    <div class="col-12 comment row m-0 px-3 d-flex position-relative box-shadow rounded-3 py-4">
+
+      <div class="dropdown position-absolute top-0 start-0  text-start text-grey mt-2 cursor-pointer" *ngIf="userData?.role == 'Admin'||userData?._id == comment?.userId?._id">
+        <i class="bi bi-three-dots-vertical " data-bs-toggle="dropdown" aria-expanded="false"></i>
+        <ul class="dropdown-menu">
+          <li *ngIf="userData.role=='Admin'" (click)="hideComment(comment._id)">Hide</li>
+          <li (click)="deleteComment(comment._id)">Delete</li>
+        </ul>
+      </div>
+      <!-- <i (click)="ReplyInput(i)" *ngIf="userData.role == 'Admin'||userData._id == comment.userId._id"
+        class="bi bi-chat-square-dots-fill position-absolute bottom-0 end-0  text-end text-grey mb-2 cursor-pointer" ></i> -->
+      <div class="col-md-2 col-12 ">
+        <p class="text-warning">{{comment?.userId?.userName}}</p>
+      </div>
+      <div class="col-md-10 col-12">{{comment.comment}}</div>
+    </div>
+    <!-- <div
+      class="col-12 box-shadow rounded-3 hide transition my-2 d-flex justify-content-center position-relative overflow-hidden"
+      id="reply{{i}}">
+      <button class=" m-0 position-absolute end-0 btn btn-main h-100 d-flex align-items-center justify-content-center"
+        (click)="addReply(comment._id)"><i class="bi bi-send-plus-fill"></i></button>
+      <input type="text" class=" w-100 p-2 border-0 border-bottom rounded-3  " [(ngModel)]="reply" placeholder="Reply">
+    </div> -->
+    <!-- <div class="col-11 reply mx-auto row m-0  d-flex my-1 box-shadow rounded-3 py-3 my-2 position-relative"
+      *ngFor="let reply of comment.replies">
+      <div class="dropdown position-absolute top-0 end-0  text-end text-grey mt-2 cursor-pointer ">
+        <i class="bi bi-three-dots-vertical " data-bs-toggle="dropdown" aria-expanded="false"></i>
+        <ul class="dropdown-menu">
+          <li>Hide</li>
+          <li>Delete</li>
+        </ul>
+      </div>
+      <div class="col-md-2 col-12 ">
+        <p class="text-warning">{{reply.userId.userName}}</p>
+      </div>
+      <div class="col-md-10 col-12">{{reply.reply}}</div>
+    </div> -->
+
+  </div>
+</div>
+<p class=" cursor-pointer text-primary text-end m-0 p-0 m-4" *ngIf="data?.comments?.length > disNum" (click)="disNum = disNum+5">see more</p>
+<p class=" cursor-pointer text-primary text-end m-0 p-0 m-4" *ngIf="data?.comments?.length <= disNum && data?.comments?.length >= 2" (click)="disNum = 1">close</p>
+
+</section>
+<section *ngIf="num>=0" class="bg-black w-100 h-100 position-absolute top-0 bg-opacity-75 m-auto px-3" id="disImg"
+  style="z-index: 1;">
+
+
+  <div style=" background-image: url({{data.images[num]}}); z-index: 9 !important;" id="disImg1"
+    class=" w-100 h-100 mx-auto disImg position-relative">
+  </div>
+  <!-- <div class="col-4 col-md-3 mx-auto d-flex align-items-center justify-content-between text-white mt-2">
+    <i class=" fs-1 bi bi-arrow-left-circle-fill cursor-pointer" (click)="minus()"></i>
+    <i class=" fs-1 bi bi-arrow-right-circle-fill cursor-pointer" (click)="plus()"></i>
+  </div> -->
+</section>
+<section *ngIf="DeleteID"
+  class="bg-black w-100 h-100 position-absolute top-0 bg-opacity-75 m-auto px-3 d-flex align-items-center justify-content-center"
+  id="disImg" style="z-index: 1;">
+
+
+  <div class=" w-25 h-25 bg-white d-flex flex-column align-items-center justify-content-evenly rounded-3">
+    <p>هل انت متاكد ؟</p>
+    <div class=" d-flex align-items-center justify-content-between w-50">
+      <button class=" btn btn-light box-shadow" (click)="DeleteID = ''">إالغاء</button>
+      <button class=" btn btn-danger box-shadow" (click)="deleteProduct(DeleteID)">حذف</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,261 @@
+.header {
+  font-size: 120px;
+  font-weight: 900 !important;
+  opacity: 0.2;
+  @media (max-width:452px) and (min-width:300px) {
+
+      font-size: 60px !important;
+      font-weight: 900 !important;
+      opacity: 0.2;
+
+  }
+  @media (max-width:929px) and (min-width:451px) {
+
+      font-size: 100px !important;
+      font-weight: 900 !important;
+      opacity: 0.2;
+ }
+
+ @media (max-width:410px){
+  font-size: 70px !important;
+
+  }
+}
+.ley{
+  z-index: 1 !important;
+}
+#carouselExampleDark{
+  img{
+    height: 90vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+}
+
+
+
+
+
+#home {
+
+  color: white;
+  font-size: 50px;
+
+
+  .reveal {
+    font-family: 'Raleway', sans-serif;
+
+    p {
+      font-size: 20px;
+    }
+
+    h1 {
+      font-size: 70px;
+      font-weight: 900 !important;
+    }
+
+    .hide {
+      transform: translateX(150px);
+      opacity: 0 !important;
+      transition: 0.5s;
+    }
+  }
+
+}
+
+#about {
+  width: 100%;
+  height: 80vh !important;
+.header{
+@media (max-width: 992px) {
+  font-size: 100px !important;
+}
+@media (max-width: 410px) {
+  font-size: 70px !important;
+}
+}
+  .img {
+    width: 80%;
+    height: 100%;
+    background-image: url('../../../assets/img/beautiful-vintage-collage-composition.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+
+  .half2 {
+
+    // padding-top: 10%;
+
+
+    .paragraph {
+      padding: 0 20px;
+
+      .data {
+        margin-right: 8px;
+        color: #FFB84C;
+      }
+    }
+  }
+}
+
+
+
+#contact {
+
+  background-color: #fff !important;
+  width: 100%;
+  height: auto !important;
+.btnTextarea{
+  pointer-events: none;
+}
+  .social {
+    width: 55px;
+    height: 55px;
+    border: solid 5px transparent;
+
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .Facebook {
+    i {
+      color: #3b5999;
+    }
+
+    &:hover {
+      width: 55px;
+      height: 55px;
+
+      border: solid 5px #d0d0d0;
+      transition: 0.5s;
+      background-color: #3b5999;
+
+      i {
+        color: white !important;
+      }
+
+    }
+  }
+
+  .Whatsapp {
+    i {
+      color: #3ebf24;
+    }
+
+    &:hover {
+      width: 55px;
+      height: 55px;
+
+      border: solid 5px #d0d0d0;
+
+      transition: 0.5s;
+      background-color: #3ebf24;
+
+      i {
+        color: white !important;
+      }
+
+    }
+  }
+
+  .Instagram {
+    i {
+      color: #cc2366
+    }
+
+    &:hover {
+      width: 55px;
+      height: 55px;
+
+      border: solid 5px #d0d0d0;
+
+      transition: 0.5s;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+
+
+      i {
+        color: white !important;
+      }
+
+    }
+  }
+}
+
+.GTGAL {
+  background-image: url(../../../assets/img/top-view-attractive-woman-hands-drawing-amazing-picture-canvas-modern-cozy-art-workshop.jpg);
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 90vh;
+  transition: 0.5s;
+  cursor: pointer;
+
+@media (max-width: 768px) and (min-width: 657px) {
+  margin-top: 82% !important;
+}
+@media (max-width: 657px) and (min-width: 624px) {
+  margin-top: 87% !important;
+}
+@media (max-width: 624px) and (min-width: 578px) {
+  margin-top: 92% !important;
+}
+@media (max-width: 578px) and (min-width: 543px) {
+  margin-top: 97% !important;
+}
+@media (max-width: 543px) and (min-width: 501px) {
+  margin-top: 105% !important;
+}
+@media (max-width: 500px) and (min-width: 471px) {
+  margin-top: 112% !important;
+}
+@media (max-width: 471px) and (min-width: 428px) {
+  margin-top: 125% !important;
+}
+@media (max-width: 427px) and (min-width: 407px) {
+  margin-top: 135% !important;
+}
+@media (max-width: 407px) and (min-width: 371px) {
+  margin-top: 163% !important;
+}
+@media (max-width: 371px) and (min-width: 338px) {
+  margin-top: 187% !important;
+}
+@media (max-width: 338px) {
+  margin-top: 205% !important;
+}
+
+p{
+  transition: 0.5s;
+  font-size: 80px;
+  opacity: 0;
+  @media (max-width: 767px) {
+    font-size: 60px;
+
+  }
+  @media (max-width: 540px) {
+    font-size: 40px;
+
+  }
+}
+&:hover {
+    p{
+  transition: 0.5s;
+      opacity: 1;
+    }
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: 0.5s;
+
+  }
+}

@@ -1,0 +1,22 @@
+.hide {
+  transition: 0.8s !important;
+  height: 0px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+#logIn {
+  transition: 0.8s;
+}
+
+#signUp {
+  transition: 0.8s;
+}
+
+.loginErrs {
+  z-index: 1;
+  background-color: aliceblue;
+}
+.loginErrs p {
+  padding: 3px;
+}/*# sourceMappingURL=login.component.css.map */

@@ -1,0 +1,14 @@
+<section>
+  <div class="">
+    <div class="row m-0">
+      <div class="col-lg-4 col-md-6 col-12 imgs m-0 " *ngFor="let item of data" (click)="theData = item" [ngClass]="{'hide': item.hide&&userData.role == 'Admin','d-none': item.hide && userData.role == 'User'}"
+        style="background-image:url({{item?.images[0]}}); ">
+        <div class="layer m-0 p-0 d-flex align-items-center justify-content-center transition">
+          <h1 *ngIf="item.name!='undefined'">{{item.name}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="bg-black bg-opacity-75 w-100 h-100 position-fixed top-0 " *ngIf="theData"><app-photodetails [data]="theData"
+    (Close)="theData = $event"></app-photodetails></div>

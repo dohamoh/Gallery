@@ -1,0 +1,75 @@
+section {
+  height: 100% !important;
+}
+section #reply,
+section #comment {
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+section .dropdown .dropdown-menu {
+  padding: 0;
+}
+section .dropdown .dropdown-menu li {
+  padding: 5px 8px;
+}
+section .dropdown .dropdown-menu li:hover {
+  background-color: rgb(232, 232, 232);
+}
+section .allImgs {
+  display: flex;
+  height: 20rem;
+  gap: 1rem;
+}
+section .allImgs div {
+  flex: 1;
+  border-radius: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  transition: all 0.8s cubic-bezier(0.25, 0.4, 0.45, 1.4);
+}
+section .allImgs .div:hover {
+  flex: 5 !important;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.pt-70 {
+  padding-top: 70px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+.h-70 {
+  height: 70%;
+}
+
+.disImg {
+  margin-top: 10%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 50%;
+}
+
+@media (max-width: 767px) and (min-width: 400px) {
+  .disImg {
+    margin-top: 20%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 50%;
+  }
+}
+.hide {
+  width: 0px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  height: 0px !important;
+}/*# sourceMappingURL=photodetails.component.css.map */
