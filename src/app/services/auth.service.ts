@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   private baseUrl = 'https://gallery-be.vercel.app/auth';
-
   // private baseUrl = 'http://localhost:3000/auth';
+
   constructor(private HttpClient:HttpClient) { }
   signUp(data: any): any {
       return this.HttpClient.post(`${this.baseUrl}/signUp`, data);
@@ -20,8 +20,6 @@ export class AuthService {
       return this.HttpClient.post(`${this.baseUrl}/sendMessage`, data);
     }
     getUserData(token: any): any {
-
-
       return this.HttpClient.get(`${this.baseUrl}/getUserData/${token}`);
     }
 }

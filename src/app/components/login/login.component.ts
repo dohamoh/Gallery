@@ -73,7 +73,6 @@ export class LoginComponent {
       (data: any) => {
         if (data.message == "added successfully") {
     this.SIGNUPloading = !this.SIGNUPloading
-
           this.cpassErr = false;
           this.signupErr = "";
           this.switch();
@@ -81,7 +80,6 @@ export class LoginComponent {
       },
       (err: HttpErrorResponse) => {
         console.log(err);
-
         this.SIGNUPloading = !this.SIGNUPloading
 
         if (err?.error?.validationArr) {
